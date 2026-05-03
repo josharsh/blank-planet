@@ -1,0 +1,131 @@
+{
+  "skill": "blank-planet",
+  "model": "claude-haiku-4-5-20251001",
+  "tests": [
+    {
+      "name": "asks structural questions before visual recommendations",
+      "prompt": "Design a landing page for my new SaaS product",
+      "assert": [
+        {
+          "type": "pattern",
+          "value": "(what does|who uses|audience|purpose|function|stakes|frequency)",
+          "description": "Should ask structural questions about the product before making visual suggestions"
+        },
+        {
+          "type": "not-contains",
+          "value": "--color",
+          "description": "Should not jump to CSS tokens without understanding the product first"
+        }
+      ]
+    },
+    {
+      "name": "identifies structural dimensions",
+      "prompt": "It's a real-time monitoring dashboard for DevOps teams. They use it 8 hours a day watching server health. Downtime costs money.",
+      "assert": [
+        {
+          "type": "pattern",
+          "value": "(real-time|monitoring|high.stakes|daily|dense|alerting|multi-stream)",
+          "description": "Should identify structural dimensions matching the product's nature"
+        }
+      ]
+    },
+    {
+      "name": "proposes a physical analog",
+      "prompt": "Yes the structural profile is right. It's real-time, high-stakes, multi-stream, daily power users, alerting.",
+      "assert": [
+        {
+          "type": "pattern",
+          "value": "(control tower|control room|bridge|cockpit|mission control|operating room|trading floor)",
+          "description": "Should propose a physical space analog that matches the structural profile"
+        }
+      ]
+    },
+    {
+      "name": "derives design from analog not from trends",
+      "prompt": "Yes the control room analog is perfect. What does that mean for the design?",
+      "assert": [
+        {
+          "type": "pattern",
+          "value": "(dark|dim|muted|focal|contrast|dense|compact|alert|precision)",
+          "description": "Should derive specific design properties from the analog's physical characteristics"
+        },
+        {
+          "type": "not-contains",
+          "value": "trending",
+          "description": "Should not reference design trends as justification"
+        }
+      ]
+    },
+    {
+      "name": "applies restraint pass",
+      "prompt": "I was thinking of adding gradients, rounded corners, and bouncy animations to make it feel modern.",
+      "assert": [
+        {
+          "type": "pattern",
+          "value": "(restraint|remove|unnecessary|structural purpose|decoration|earn|justify|analog)",
+          "description": "Should push back on decoration that contradicts the structural analog"
+        }
+      ]
+    },
+    {
+      "name": "validates against universal constants",
+      "prompt": "What contrast ratio should I use for the dashboard text?",
+      "assert": [
+        {
+          "type": "pattern",
+          "value": "(4\\.5|WCAG|contrast ratio|visual cortex|processing|legib)",
+          "description": "Should reference neuroscience-backed contrast requirements"
+        }
+      ]
+    },
+    {
+      "name": "uses different analog for calming product",
+      "prompt": "My product is a meditation and journaling app. Users open it once a day for 10 minutes to reflect.",
+      "assert": [
+        {
+          "type": "pattern",
+          "value": "(garden|temple|library|cabin|studio|chapel|sanctuary|bookshop|retreat)",
+          "description": "Should propose a calm, contemplative physical space as analog"
+        },
+        {
+          "type": "not-contains",
+          "value": "control room",
+          "description": "Should not suggest a high-intensity analog for a calming product"
+        }
+      ]
+    },
+    {
+      "name": "connects to companion skills",
+      "prompt": "This design direction makes sense. What should I do next?",
+      "assert": [
+        {
+          "type": "pattern",
+          "value": "(font-matchmaker|design-system)",
+          "description": "Should recommend companion skills for executing the direction"
+        }
+      ]
+    },
+    {
+      "name": "explains why with science",
+      "prompt": "Why does dark mode work better for dashboards?",
+      "assert": [
+        {
+          "type": "pattern",
+          "value": "(pre-attentive|processing fluency|luminance|visual cortex|figure.ground|perception|cognitive)",
+          "description": "Should explain with neuroscience, not just opinion"
+        }
+      ]
+    },
+    {
+      "name": "catches coherence violations in audit",
+      "prompt": "I'm using flat design with no shadows, but my modals have drop shadows. My buttons are 4px radius but cards are 16px. Is this okay?",
+      "assert": [
+        {
+          "type": "pattern",
+          "value": "(inconsisten|coherence|uncanny|mismatch|mixed|tension|conflict)",
+          "description": "Should identify the mixed elevation model and mixed radius as coherence violations"
+        }
+      ]
+    }
+  ]
+}
