@@ -8,14 +8,18 @@ You're the only designer on Earth. You just landed on a blank planet. You must d
 
 ## Install
 
-```bash
-/plugin marketplace add blank-planet
+In Claude Code, run:
+
+```
+/plugin marketplace add josharsh/blank-planet
 ```
 
 Or manually:
 
 ```bash
-./install.sh
+mkdir -p ~/.claude/skills/blank-planet
+curl -sL https://raw.githubusercontent.com/josharsh/blank-planet/main/skills/blank-planet/SKILL.md \
+  -o ~/.claude/skills/blank-planet/SKILL.md
 ```
 
 ## What It Does
