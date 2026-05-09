@@ -1,11 +1,14 @@
 {
   "name": "blank-planet",
-  "description": "Design any product from first principles using structural analogy — find a non-digital parallel that shares your product's DNA, then derive every visual decision from it",
-  "version": "1.0.0",
-  "skills": [
+  "owner": {
+    "name": "josharsh"
+  },
+  "plugins": [
     {
       "name": "blank-planet",
-      "path": "skills/blank-planet/SKILL.md"
+      "source": "./",
+      "description": "Design any product from first principles using structural analogy — find a non-digital parallel that shares your product's DNA, then derive every visual decision from it",
+      "version": "1.0.0"
     }
   ]
 }
